@@ -6,7 +6,11 @@ const requestHandler = (req, res) => {
         res.write("<html>");
         res.write("<head><title>Greetings</title></head>")
         res.write("<body><h1>Welcome to Assignment 1</h1>")
-        res.write('<form action="/create-user" method="POST"><input name="username" type="text"><button type="submit">Create User</button></form>');
+        res.write('<form action="/create-user" method="POST">');
+        res.write('<input name="username" type="text">');
+        res.write('<input name="age" type="text">');
+        res.write('<input name="eyecolor" type="text">');
+        res.write('<button type="submit">Create User</button></form>');
         res.write("</body></html>");
         return res.end();
     }
@@ -29,8 +33,13 @@ const requestHandler = (req, res) => {
         });
         return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
-            const message = parsedBody.split('=')[1];
-            console.log(message);
+            const items = parsedBody.split('&');
+            const username = items[0].split('=')[1];
+            const age = items[1].split('=')[1];
+            const eyeColor = items[2].split('=')[1];
+            console.log(username);
+            console.log(age);
+            console.log(eyeColor);
         });
     }
     res.setHeader("Content-Type", "text/html");
