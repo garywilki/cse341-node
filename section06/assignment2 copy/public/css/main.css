@@ -1,0 +1,9 @@
+html {
+    font-size: 16px;
+    background-color: #ccc;
+}
+
+.book-form {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}

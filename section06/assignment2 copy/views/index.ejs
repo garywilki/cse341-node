@@ -1,0 +1,8 @@
+<%- include('includes/head.ejs') %>
+    <form action="/add-book" method="POST" class="book-form">
+        Book Title: <input type="text" name="title"><br />
+        Book Color: <input type="text" name="color"><br />
+        Book Summary: <input type="text" name="summary">
+        <button type="submit">Add Book</button>
+    </form>
+<%- include('includes/end.ejs') %>
